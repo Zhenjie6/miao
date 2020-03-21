@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  * {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  body {
+    margin: 0px;
+  }
+
+  header {
+    color: white;
+    background-color: #000;
+    min-width: 600px;
+  }
+
+  header p {
+    width: 600px;
+    margin: auto;
+  }
+
+  .main {
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: justify;
+  }
+
+  ul {
+    list-style-type: none;
+    width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  ul .product {
+    width: 180px;
+    height: 40px;
+    box-sizing: border-box;
+    background-color: salmon;
+    border: black 3px solid;
+    text-align: center;
+    line-height: 34px;
+  }
+
+  .product:hover {
+    background-color: red;
+  }
+
+  .product:nth-child(3n + 2) {
+    margin-left: 210px;
+    margin-top: -40px
+  }
+
+  .product:nth-child(3n) {
+    margin-left: 420px;
+    margin-top: -40px;
+    margin-bottom: 15px;
+  }
+
+  .link {
+    border-bottom: dotted 1px black;
+  }
+
+  .link:last-child {
+    border-bottom: none;
+  }
+
+  .link p {
+    margin: 0px;
+  }
+
+  footer {
+    margin-top: 20px;
+  }
+
+  footer p {
+    text-align: center;
+    background-color: violet;
+    margin: 0px;
+  }
+</style>
+
+<body>
+  <header>
+    <p>hello world ,adjust size of browser window to check it out</p>
+  </header>
+  <div>
+    <p class="main">page main width 600px page main width 600px page main width 600px page main width 600px
+      page main width 600px page main width 600px page main width 600px page main width 600px
+      page main width 600px page main width 600px page main width 600px page main width 600px
+    </p>
+  </div>
+
+  <ul>
+    <li class="product">w180 h40</li>
+    <li class="product">product</li>
+    <li class="product">product</li>
+    <li class="product">horizonal gap 30</li>
+    <li class="product">product</li>
+    <li class="product">product</li>
+    <li class="product">vertical gap 30</li>
+    <li class="product">product</li>
+    <li class="product">product</li>
+    <li class="product">border weight 3px</li>
+    <li class="product">product</li>
+    <li class="product">product</li>
+  </ul>
+
+  <ul class="linkul">
+    <li class="link">
+      <p>link</p>
+    </li>
+    <li class="link">
+      <p>link</p>
+    </li>
+    <li class="link">
+      <p>link</p>
+    </li>
+    <li class="link">
+      <p>link</p>
+    </li>
+    <li class="link">
+      <p>link</p>
+    </li>
+  </ul>
+
+  <footer>
+    <p> &copy;copyright</p>
+    <p>the whole layout of this page made by block-element</p>
+  </footer>
+</body>
+
+</html>
