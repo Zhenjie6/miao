@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  *{
+    background-color: rgba(0,0,0,0.08)
+  }
+
+  li{
+    cursor: pointer;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+  }
+  
+  .level-one{
+    border: 1px grey solid;
+    width: 100px;
+    height: 22px;
+    box-sizing: border-box;
+    line-height: 20px;
+    text-align: center;
+    float: left;
+    position: relative;
+  }
+
+  .level-two{
+    font-size: 0.8em;
+  }
+
+  .level-three{
+    font-size: 0.8em;
+    height: 1.2em;
+    width: auto;
+  }
+
+  .level-one:hover>ul{
+    display: block;
+    position: absolute;
+    top: 21px;
+    left: -1px;
+    border: 1px solid pink;
+  }
+
+  .level-one:hover>ul>li{
+    position: relative;
+  }
+
+  .level-one>ul{
+    display: none;
+  }
+
+  .level-two>ul{
+    display: none;
+  }
+
+  .level-two:hover>ul{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: calc(100% + 1px);
+    width: 50px;
+  }
+
+
+</style>
+
+<body>
+  <ul>
+    <li class="level-one">
+      level-one01
+      <ul>
+        <li class="level-two">
+          level-two01
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two02
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two03
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two04
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two05
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two06
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="level-one">
+      level-one02
+      <ul>
+        <li class="level-two">
+          level-two01
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two02
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two03
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two04
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two05
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two06
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="level-one">
+      level-one03
+      <ul>
+        <li class="level-two">
+          level-two01
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two02
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two03
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two04
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two05
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+        <li class="level-two">
+          level-two06
+          <ul>
+            <li class="level-three">level-three1</li>
+            <li class="level-three">level-three2</li>
+            <li class="level-three">level-three3</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+
+</html>

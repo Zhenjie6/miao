@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  *{
+    background-color: rgba(0,0,0,0.05);
+  }
+  .container{
+    height: 100px;
+    width: 100px;
+    position: relative;
+  }
+  .checkbox{
+    display: none;
+  }
+
+  label{
+    height: 100px;
+    width: 100px;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: url(https://abs.twimg.com/a/1454637594/img/t1/web_heart_animation.png);
+    background-position-x: 0px;
+  }
+
+  .checkbox:checked+label{
+    background-position-x: -2800px;
+    transition: 1s steps(28);
+  }
+</style>
+<body>
+  <!-- link: https://www.kirupa.com/canvas/images/twitter_fav_icon_300.png -->
+  <div class="container">
+    <input class="checkbox" type="checkbox" id="checkbox">
+    <label for="checkbox"></label>
+  </div>
+</body>
+</html>
