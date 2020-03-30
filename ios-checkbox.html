@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ios-switch-button</title>
+</head>
+
+<style>
+  body{
+    position: relative;
+  }
+
+  .btn-c{
+    background-color: #fdfdfd;
+    position: absolute;
+    display: block;
+    height: 93px;
+    width: 93px;
+    box-sizing: border-box;
+    border: 1px #dddddd solid;
+    border-radius: 50px;
+    top: 2.5px;
+    left: 2.5px;
+    box-shadow: 1px 1px 5px 1px #dddddd;
+    transition: 0.5s;
+  }
+
+
+
+  #sb:checked + label div{
+    left: 102.5px;
+  }
+
+
+
+  .sblb {
+    position: relative;
+    box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    border: 1px solid #dddddd;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 1000000px;
+    background-color: #fdfdfd;
+    box-shadow: inset 0px 0px 0px 0px #99ee99;
+    transition: all 0.5s;
+  }
+
+  #sb:checked + label{
+    border-color: #66dd66;
+    box-shadow: inset 0px 0px 5px 49px #66dd66;
+  }
+
+  #sb {
+    display: none;
+  }
+</style>
+
+<body>
+  <div class="btn">
+    <input type="checkbox" name="switchbutton" id="sb">
+    <label for="sb" class="sblb"><div class="btn-c"></div></label>
+  </div>
+</body>
+
+</html>
