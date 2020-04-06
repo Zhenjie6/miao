@@ -1,0 +1,27 @@
+/** 去底部广告 **/
+body > main{
+  height: 100%;
+}
+
+#codefund-ad {
+  display: none !important;
+}
+
+/* 预览区边框 */
+.stretch #live iframe {
+  border: 5px solid #008080aa;
+  margin-top: 35px;
+  padding-top: 0;
+  height: calc(100% - 35px);
+}
+
+/* 预览区上方按钮 */
+#live .label .options{
+  white-space: nowrap;
+}
+
+#infocard {
+  left: 12px;
+  bottom: 20px;
+  right: auto;
+}

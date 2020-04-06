@@ -3,3 +3,7 @@ node_modules
 .vscode
 .git
 data
+test.js
+test2.js
+test3.js
+lodash.js
