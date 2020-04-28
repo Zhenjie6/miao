@@ -31,6 +31,10 @@ var jackyen96 = {
     for(let i = start; i < end; i++){
       array[i] = value
     }
+  },
+
+  isNull(val){
+    return val === null ? true : false
   }
 
 
