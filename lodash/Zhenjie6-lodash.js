@@ -1,4 +1,4 @@
-var Zhenjie6 = {
+var zhenjie6 = {
   compact: function(ary){
     return ary.filter(item => item);
   },

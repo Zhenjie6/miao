@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta name="description" content="css-abs-center">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style id="jsbin-css">
+    /* 方案一 ：div.a {position:fixed;
+margin:25%} */
+
+
+    方案二： .body {
+      font-size: 0;
+    }
+
+    iframe {
+      border: 1px solid transparent;
+      width: 0;
+    }
+
+    .center {
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 25%;
+      margin-left: 25%
+    }
+
+
+    /* 方案三
+html {height:100%;
+width:100%;
+margin:0}
+body {height:100%;
+width:100%;
+margin:0}
+.wrap {margin:25%;
+  } */
+
+    方案四
+    /* body {
+  position:relative;
+}
+.center {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100px;
+  height:100px;
+  margin:auto;
+}
+ */
+  </style>
+</head>
+
+<body>
+  <!--  方案一
+  <div class=center>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, dolorum.</div>
+  
+<style>
+  .center {position:fixed;
+  margin:25%}
+</style>
+   -->
+
+  <!-- 方案二
+  <div class=center><iframe src="" frameborder="0"></iframe>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, dolorum.</div>
+  
+  <style>.body {font-size:0;}
+  
+  iframe {border:1px solid transparent;
+  width:0;}
+  
+  .center {
+  font-size:16px;
+   display:inline-block;
+  vertical-align:middle;
+  margin-right:25%;
+  margin-left:25%
+  }</style> -->
+
+
+  <div class=center>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, dolorum.</div>
+
+  <style>
+    /* 方案三
+html {height:100%;
+width:100%;
+margin:0}
+body {height:100%;
+width:100%;
+margin:0}
+.center {margin:25%;
+  }
+     */
+
+    方案四 body {
+      position: relative;
+    }
+
+    .center {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      margin: auto;
+    }
+  </style>
+
+</body>
+
+</html>

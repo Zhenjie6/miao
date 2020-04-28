@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  em {
+    background-color: red;
+  }
+</style>
+
+<body>
+  Input RegExp: <input type="text" id="regexp">
+  <br>
+  Input String: <textarea id="string" cols="30" rows="10"></textarea>
+  <br>
+  Show Result: <div id="result"></div>
+
+  <script>
+    function showResult(re, str) {
+      var result = ''
+      var match
+      var lastIndex = 0
+      while(match = re.exec(str)) {
+        if(match[0] == '')
+        
+        result += str.slice(lastIndex, match.index)
+        result += '<em>' + match[0] + '</em>'
+        lastIndex = re.lastIndex
+      }
+      result += str.slice(lastIndex)
+      return result
+    }
+
+    var regexpInput = document.getElementById('regexp')
+    var stringInput = document.getElementById('string')
+    var resultDiv = document.getElementById('result')
+    regexpInput.onkeyup = run
+    stringInput.onkeyup = run
+    function run() {
+      if(regexpInput.value == '')
+        return resultDiv.innerHTML = stringInput.value
+      var re = new RegExp(regexpInput.value, 'g')
+      var str = stringInput.value
+      var result = showResult(re, str)
+      resultDiv.innerHTML = result
+    }
+  </script>
+</body>
+
+</html>
