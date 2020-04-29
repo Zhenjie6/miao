@@ -41,12 +41,10 @@ var jackyen96 = {
   concat(array, values) {
     let result = array.slice(0)
     for(let idx = 1; idx < arguments.length; idx++) {
-      if(typeof arguments[idx] === Array) {
-        let ary = new Array()
-        for(let i = 0; i < arg.length; i++) {
-          ary.push(arguments[idx][i])
+      if(arguments[idx].length) {
+        for(let i = 0; i < arguments[idx].length; i++) {
+          result.push(arguments[idx][i])
         }
-        result.push(ary)
         continue
       }
       result.push(arguments[idx])
@@ -96,12 +94,23 @@ var jackyen96 = {
     return result
   },
 
-  matchesProperty(){
-
+  /**
+   * 返回一个方法判断输入对象的path属性是否等于srcValue
+   * @param {String} path 
+   * @param {*} srcValue 
+   */
+  matchesProperty(path, srcValue){
+    return function(obj){
+      if(obj[path] == srcValue)
+      return true
+      return false
+    }
   },
 
-  property(){
-
+  property(obj){
+    return function(a){
+      return a
+    }
   },
 
   find(collection, predicate = this.identity, fromIndex = 0){
