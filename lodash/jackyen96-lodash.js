@@ -56,22 +56,22 @@ var jackyen96 = {
   difference(array, value = []) {
     let result = new Array()
     let map = {}
-    for(let item in value){
+    for(let item in value) {
       if(map[item])
-      continue
+        continue
       map[item] = true
     }
-    for(let i = 0; i < array.length; i++){
+    for(let i = 0; i < array.length; i++) {
       if(map[array[i]])
-      continue
+        continue
       result.push(array[i])
     }
     return result
   },
-  drop,
-  fill,
-  find,
-  first,
-  head,
+  // drop,
+  // fill,
+  // find,
+  // first,
+  // head,
 
 }
