@@ -4,11 +4,11 @@ var jackyen96 = {
   },
 
   fill(array, value, start = 0, end = array.length) {
-    let result = new Array(array)
+    let result = array.slice(0)
     if(start >= end)
       return result
     for(let i = start; i < end; i++) {
-      array[i] = value
+      result[i] = value
     }
     return result
   },
@@ -27,7 +27,7 @@ var jackyen96 = {
    */
   chunk(ary, size) {
     let result = new Array()
-    for(let i = 0; i <= ary.length; i += size) {
+    for(let i = 0; i < ary.length; i += size) {
       result.push(ary.slice(i, i + size))
     }
     return result
@@ -40,16 +40,16 @@ var jackyen96 = {
    */
   concat(array, values) {
     let result = array.slice(0)
-    for(let arg in arguments) {
-      if(typeof arg === Array) {
+    for(let idx = 1; idx < arguments.length; idx++) {
+      if(typeof arguments[idx] === Array) {
         let ary = new Array()
         for(let i = 0; i < arg.length; i++) {
-          ary.push(arg[i])
+          ary.push(arguments[idx][i])
         }
         result.push(ary)
         continue
       }
-      result.push(arg)
+      result.push(arguments[idx])
     }
     return result
   },
