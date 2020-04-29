@@ -53,7 +53,7 @@ var jackyen96 = {
     }
     return result
   },
-  difference(array, value = []) {
+  difference(array, ...values) {
     let result = new Array()
     let map = {}
     for(let item in value) {
@@ -68,7 +68,11 @@ var jackyen96 = {
     }
     return result
   },
-  // drop,
+  drop(array, n = 1){
+    if(n >= array.length - 1)
+    return []
+    return array.slice(n)
+  },
   // fill,
   // find,
   // first,
