@@ -21,8 +21,8 @@ var jackyen96 = {
    * @description Creates an array of elements split into groups the length of size.
    * If array can't be split evenly, the final chunk will be the remaining elements.
    * 
-   * @param ary{Array} 需要拆分的数组
-   * @param size{Number} 拆分的单位大小
+   * @param {Array} ary 需要拆分的数组
+   * @param {Number} size 拆分的单位大小
    * @returns {Array} 拆分后组成的新数组
    */
   chunk(ary, size) {
@@ -35,8 +35,8 @@ var jackyen96 = {
 
   /**
    * @description 把数组和新的内容链接起来
-   * @param array {Array}: The array to concatenate.
-   * @param values {...*}: The values to concatenate.
+   * @param {Array} array : The array to concatenate.
+   * @param {...*} values : The values to concatenate.
    */
   concat(array, values) {
     let result = array.slice(0)
@@ -53,13 +53,15 @@ var jackyen96 = {
     }
     return result
   },
+
+
   difference(array, ...values) {
     let result = new Array()
     let map = {}
-    for(let item in value) {
-      if(map[item])
-        continue
-      map[item] = true
+    for(let j = 1; j < arguments.length; j++) {
+      for(let i = 0; i < arguments[j].length; i++) {
+        map[arguments[j][i]] = true
+      }
     }
     for(let i = 0; i < array.length; i++) {
       if(map[array[i]])
@@ -68,13 +70,43 @@ var jackyen96 = {
     }
     return result
   },
-  drop(array, n = 1){
-    if(n >= array.length - 1)
-    return []
+
+  drop(array, n = 1) {
+    if(n > array.length - 1)
+      return []
     return array.slice(n)
   },
-  // fill,
-  // find,
+
+  identity(_){
+    return _
+  },
+
+  /**
+   * 返回一个方法判断输入是否和source中对应的属性值相等
+   * @param {Object} source 
+   */
+  matches(source){
+    let result = function(obj){
+      for(let arg in source){
+        if(obj[arg] != source[arg])
+        return false
+        return true
+      }
+    }
+    return result
+  },
+
+  matchesProperty(){
+
+  },
+
+  property(){
+
+  },
+
+  find(collection, predicate = this.identity, fromIndex = 0){
+    
+  },
   // first,
   // head,
   // flatten

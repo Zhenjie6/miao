@@ -5,3 +5,4 @@ function wildcarMatch(wild, str){
   var re = new RegExp('^' + reStr + '$')
   return re.test(str)
 }
+
