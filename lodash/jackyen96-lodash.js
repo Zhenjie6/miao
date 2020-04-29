@@ -107,14 +107,24 @@ var jackyen96 = {
     }
   },
 
-  property(obj){
-    return function(a){
-      return a
+  property(path){
+    return function(obj){
+      return obj[path]
     }
   },
 
   find(collection, predicate = this.identity, fromIndex = 0){
-    
+    if(typeof predicate == 'object' && !predicate.length)
+    predicate = this.matches(predicate)
+    if(typeof predicate == 'object' && predicate.length)
+    predicate = this.matchesProperty(predicate)
+    if(typeof predicate == 'string')
+    predicate = this.matchesProperty(predicate)
+    for(let i = fromIndex; i < collection.length; i++){
+      if(predicate(collection[i]) == true)
+      return collection[i]
+    }
+    return undefined
   },
   // first,
   // head,
