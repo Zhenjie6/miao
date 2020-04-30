@@ -75,7 +75,7 @@ var jackyen96 = {
     return array.slice(n)
   },
 
-  identity(_){
+  identity(_) {
     return _
   },
 
@@ -83,11 +83,11 @@ var jackyen96 = {
    * 返回一个方法判断输入是否和source中对应的属性值相等
    * @param {Object} source 
    */
-  matches(source){
-    let result = function(obj){
-      for(let arg in source){
+  matches(source) {
+    let result = function (obj) {
+      for(let arg in source) {
         if(obj[arg] != source[arg])
-        return false
+          return false
         return true
       }
     }
@@ -99,36 +99,54 @@ var jackyen96 = {
    * @param {String} path 
    * @param {*} srcValue 
    */
-  matchesProperty(path, srcValue){
-    return function(obj){
+  matchesProperty(path, srcValue) {
+    return function (obj) {
       if(obj[path] == srcValue)
-      return true
+        return true
       return false
     }
   },
 
-  property(path){
-    return function(obj){
+  property(path) {
+    return function (obj) {
       return obj[path]
     }
   },
 
-  find(collection, predicate = this.identity, fromIndex = 0){
+  find(collection, predicate = this.identity, fromIndex = 0) {
     if(typeof predicate == 'object' && !predicate.length)
-    predicate = this.matches(predicate)
+      predicate = this.matches(predicate)
     if(typeof predicate == 'object' && predicate.length)
-    predicate = this.matchesProperty(predicate)
+      predicate = this.matchesProperty(predicate[0], predicate[1])
     if(typeof predicate == 'string')
-    predicate = this.matchesProperty(predicate)
-    for(let i = fromIndex; i < collection.length; i++){
+      predicate = this.property(predicate)
+    for(let i = fromIndex; i < collection.length; i++) {
       if(predicate(collection[i]) == true)
-      return collection[i]
+        return collection[i]
     }
     return undefined
   },
-  // first,
-  // head,
-  // flatten
+
+  first(ary) {
+    return ary[0]
+  },
+
+  head(ary) {
+    return ary[0]
+  },
+
+  flatten(ary){
+    let result = new Array()
+    for(let i = 0; i < ary.length; i++){
+      if(typeof ary[i] === 'object' && ary[i].length){
+        for(let j = 0; j < ary[i].length; j++){
+          result.push(ary[i][j]) 
+        }
+        continue
+      }
+      result.push(ary[i])
+    }
+  },
   // indexOf
   // initial
   // intersection
