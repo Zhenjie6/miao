@@ -146,17 +146,105 @@ var jackyen96 = {
       }
       result.push(ary[i])
     }
+    return result 
   },
-  // indexOf
-  // initial
-  // intersection
-  // join
-  // last
-  // lastIndexOf
-  // nth
-  // pull
-  // pullAll
-  // pullAt
+
+  indexOf(ary, value, fromIndex = 0){
+    for(let i = fromIndex; i < ary.length; i++){
+      if(ary[i] == value)
+      return i
+    }
+    return -1
+  },
+
+  initial(array){
+    return array.slice(0,array.length - 1)
+  },
+  
+  intersection(...ary){
+    let map = {}
+    for(let id in arguments[0]){
+      map[arguments[0][id]] = true
+    }
+    let result = new Array()
+    for(let i = 1; i < arguments.length; i++){
+      for(let val in map){
+        if(arguments[i].indexOf(+val) < 0)
+        map[val] = false
+      }
+    }
+    for(let val in map){
+      if(map[val])
+      result.push(+val)
+    }
+    return result
+  },
+
+
+  join(ary, seprater = ','){
+    let result = ''
+    for(let i in ary){
+      result += (ary[i] + seprater)
+    }
+    return result.slice(0, result.length - 1)
+  },
+  
+  last(ary){
+    return ary.slice(ary.length - 1)
+  },
+
+  lastIndexOf(ary, values, fromIndex = ary.length - 1){
+    let count = 0;
+    for(let i = fromIndex; i >= 0; i--){
+      if(ary[i] == values)
+      return fromIndex - count
+      count ++
+    }
+    return -1
+  },
+  
+  nth(ary, n = 0){
+    return ary[n]
+  },
+  
+  pull(ary, ...values){
+    let map = {}
+    let result = new Array()
+    for(let i = 1; i < arguments.length; i++){
+      map[arguments[i]] = true
+    }
+    for(let i = 0; i < ary.length; i++){
+      if(map[ary[i]])
+      continue
+      result.push(ary[i])
+    }
+    return result
+  },
+
+  pullAll(ary, values){
+    let map = {}
+    let result = new Array()
+    for(let i = 0; i < values.length; i++){
+      map[values[i]] = true
+    }
+    for(let i = 0; i < ary.length; i++){
+      if(map[ary[i]])
+      continue
+      result.push(ary[i])
+    }
+  },
+
+  pullAt(ary, idx){
+    let offset = 0
+    let result = []
+    for(let id in idx){
+      let pos = idx[id] - offset
+      result.push(ary[pos])
+      ary.splice(pos, 1)
+      offset++
+    }
+    return result
+  },
   // remove
   // reverse
   // slice
