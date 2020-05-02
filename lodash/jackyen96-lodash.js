@@ -151,7 +151,7 @@ var jackyen96 = {
 
   indexOf(ary, value, fromIndex = 0){
     for(let i = fromIndex; i < ary.length; i++){
-      if(ary[i] == value)
+      if(ary[i] == value || ((val !== val) && (ary[i] !== ary[i])))
       return i
     }
     return -1
@@ -184,19 +184,19 @@ var jackyen96 = {
   join(ary, seprater = ','){
     let result = ''
     for(let i in ary){
-      result += (ary[i] + seprater)
+      result += (ary[i] + '' + seprater)
     }
     return result.slice(0, result.length - 1)
   },
   
   last(ary){
-    return ary.slice(ary.length - 1)
+    return ary.slice(ary.length - 1)[0]
   },
 
   lastIndexOf(ary, values, fromIndex = ary.length - 1){
     let count = 0;
     for(let i = fromIndex; i >= 0; i--){
-      if(ary[i] == values)
+      if(ary[i] == values || ((val !== val) && (ary[i] !== ary[i])))
       return fromIndex - count
       count ++
     }
@@ -204,6 +204,8 @@ var jackyen96 = {
   },
   
   nth(ary, n = 0){
+    if(n < 0)
+    return ary[ary.length + n]
     return ary[n]
   },
   
@@ -232,6 +234,7 @@ var jackyen96 = {
       continue
       result.push(ary[i])
     }
+    return result
   },
 
   pullAt(ary, idx){
