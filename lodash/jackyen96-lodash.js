@@ -151,7 +151,7 @@ var jackyen96 = {
 
   indexOf(ary, value, fromIndex = 0){
     for(let i = fromIndex; i < ary.length; i++){
-      if(ary[i] == value || ((val !== val) && (ary[i] !== ary[i])))
+      if(ary[i] == value || ((value !== value) && (ary[i] !== ary[i])))
       return i
     }
     return -1
@@ -193,10 +193,10 @@ var jackyen96 = {
     return ary.slice(ary.length - 1)[0]
   },
 
-  lastIndexOf(ary, values, fromIndex = ary.length - 1){
+  lastIndexOf(ary, value, fromIndex = ary.length - 1){
     let count = 0;
     for(let i = fromIndex; i >= 0; i--){
-      if(ary[i] == values || ((val !== val) && (ary[i] !== ary[i])))
+      if(ary[i] == value || ((value !== value) && (ary[i] !== ary[i])))
       return fromIndex - count
       count ++
     }
@@ -248,16 +248,95 @@ var jackyen96 = {
     }
     return result
   },
-  // remove
-  // reverse
-  // slice
-  // sortedIndex
-  // sortedIndexOf
-  // tail
-  // take
-  // takeRight
-  // union
-  // uniq
+
+  remove(ary, predicate = this.identity){
+    let result = []
+    for(let i = 0; i < ary.length; i++){
+      if(predicate(ary[i]) == true){
+        result.push(ary[i])
+        ary.splice(i, 1)
+        i--
+      }
+    }
+    return result
+  },
+
+  reverse(ary){
+    return ary.reverse()
+  },
+  
+  slice(ary, str, end){
+    return ary.slice(str, end)
+  },
+
+  sortedIndex(ary, val){
+    if(val <= ary[0])
+    return 0
+    if(val > ary[ary.length - 1])
+    return ary.length - 1
+    let l = 0
+    let r = ary.length - 1
+    let mid = 0
+    while(l < r){
+      mid = Math.floor((l + r) / 2)
+      if(ary[mid] < val)
+      l = mid + 1
+      else
+      h = mid - 1
+    }
+    return l
+  },
+
+  sortedIndexOf(ary, val){
+    if(ary[0] == val)
+    return 0
+    if(ary[ary.length - 1] == val)
+    return ary.length - 1
+    let l = 0
+    let r = ary.length -1
+    let mid
+    while(l < r){
+      mid = Math.floor((l + r) / 2)
+      if(ary[mid] < val)
+      l = mid + 1
+      else
+      r = mid - 1
+    }
+    return l
+  },
+  
+  tail(ary){
+    return ary.slice(1)
+  },
+
+  take(ary, n = 1){
+    if(n == 0)
+    return []
+    return ary.slice(0, n)
+  },
+  
+  takeRight(ary, n = 1){
+    if(n == 0)
+    return []
+    return ary.slice(ary.length - n)
+  },
+
+  union(...arys){
+    let result = arguments[0]
+    for(let i = 1; i < arguments.length; i++){
+      for(let j in arguments[i]){
+        if(result.indexOf(arguments[i][j]) == -1)
+        result.push(arguments[i][j])
+      }
+    }
+    return result
+  },
+  
+  uniq(){
+    
+  },
+
+
   // unzip
   // without
   // xor
