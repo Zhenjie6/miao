@@ -1,4 +1,5 @@
 var jackyen96 = {
+
   compact(ary) {
     return ary.filter(item => item);
   },
@@ -269,6 +270,7 @@ var jackyen96 = {
     return ary.slice(str, end)
   },
 
+// /sortedIndex([1,2,2,2,2,3],2)
   sortedIndex(ary, val){
     if(val <= ary[0])
     return 0
@@ -282,7 +284,7 @@ var jackyen96 = {
       if(ary[mid] < val)
       l = mid + 1
       else
-      h = mid - 1
+      r = mid - 1
     }
     return l
   },
@@ -318,6 +320,8 @@ var jackyen96 = {
   takeRight(ary, n = 1){
     if(n == 0)
     return []
+    if(n > ary.length)
+    return ary
     return ary.slice(ary.length - n)
   },
 
@@ -332,21 +336,78 @@ var jackyen96 = {
     return result
   },
   
-  uniq(){
-    
+  uniq(ary){
+    let result
+    let map  
+    for(let i in ary){
+      if(!ary[i] in map){
+        map[ary[i]] == true
+        result.push(ary[i])
+      }
+    }
+    return result
   },
 
 
-  // unzip
-  // without
-  // xor
-  // zip
-  // zipObject
-  // includes
-  // sample
-  // sampleSize
-  // shuffle
-  // size
+  unzip(...arys){
+    let result = new Array(arguments[0].length)
+    for(let i = 0; i < result.length; i++){
+      result[i] = new Array()
+    }
+    for(let i = 0; i < arguments[0].length; i++){
+      for(let j = 0; j < arguments.length; j++){
+        result[i].push(arguments[j][i])
+      }
+    }
+    return result
+  },
+
+  without(){
+    
+  },
+  
+  xor(){
+
+  },
+
+  zip(...arys){
+    let result = new Array(arguments[0].length)
+    for(let i = 0; i < result.length; i++){
+      result[i] = new Array()
+    }
+    for(let i = 0; i < arguments[0].length; i++){
+      for(let j = 0; j < arguments.length; j++){
+        result[i].push(arguments[j][i])
+      }
+    }
+    return result
+  },
+
+  zipObject(){
+
+  },
+
+  includes(){
+
+  },
+
+  sample(){
+
+  },
+  
+  sampleSize(){
+
+  },
+
+  shuffle(){
+
+  },
+  
+  size(){
+
+  },
+
+
   // eq,gt,gte
   // lt,lte
   // add,ceil
