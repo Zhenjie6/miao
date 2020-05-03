@@ -349,33 +349,63 @@ var jackyen96 = {
   },
 
 
-  unzip(...arys){
-    let result = new Array(arguments[0].length)
+  unzip(arys){
+    let result = new Array(arys[0].length)
     for(let i = 0; i < result.length; i++){
       result[i] = new Array()
     }
-    for(let i = 0; i < arguments[0].length; i++){
-      for(let j = 0; j < arguments.length; j++){
-        result[i].push(arguments[j][i])
+    for(let i = 0; i < arys[0].length; i++){
+      for(let j = 0; j < arys.length; j++){
+        result[i].push(arys[j][i])
       }
     }
     return result
   },
 
-  without(){
-    
+  without(ary, ...val){
+    let result = ary.slice(0)
+    for(let i in val){
+      for(let id = 0; id < result.length; i++){
+        if(result[id] == val[i]){
+          result.splice(id, 1)
+          i--
+        }
+      }
+    }
+    return result
   },
   
-  xor(){
-
+  xor(...arys){
+    let result = []
+    let map = {}
+    for(let i in arys){
+      for(let j in arys[i]){
+        if(map[arys[i][j]]){
+          map[arys[i][j]] = 2
+        }
+        else map[arys[i][j]] = 1
+      }
+    }
+    for(let i in map){
+      if(map[i] == 1){
+        result.push(+i)
+      }
+    }
+    return result
   },
 
   zip(...arys){
-    let result = new Array(arguments[0].length)
+    let maxLen = 0
+    for(let i in arguments){
+      if(arguments[i].length > maxLen){
+        maxLen = arguments[i].length
+      }
+    }
+    let result = new Array(maxLen)
     for(let i = 0; i < result.length; i++){
       result[i] = new Array()
     }
-    for(let i = 0; i < arguments[0].length; i++){
+    for(let i = 0; i < maxLen; i++){
       for(let j = 0; j < arguments.length; j++){
         result[i].push(arguments[j][i])
       }
@@ -383,28 +413,69 @@ var jackyen96 = {
     return result
   },
 
-  zipObject(){
-
+  zipObject(props = [], values = []){
+    let result = {}
+    for(let i in props){
+      result[props[i]] = values[i]
+    }
+    return result
   },
 
-  includes(){
-
+  includes(collection, value, fromIndex = 0){
+    if(typeof collection === 'string'){
+      return collection.indexOf(value) > -1
+    }
+    if(typeof collection === 'object' && collection.length){
+      for(let i = fromIndex; i < collection.length; i++){
+        if(collection[i] == value)
+        return true
+      }
+    }else{
+      for(let i in collection){
+        if(collection[i] == value)
+        return true
+      }
+    }
+    return false
   },
 
-  sample(){
-
+  sample(ary){
+    let random = Math.random()
+    let i = Math.floor(ary.length * random)
+    return ary[i]
   },
   
-  sampleSize(){
-
+  sampleSize(collection, n = 1){
+    let result = []
+    while(n > 0){
+      let random = Math.random()
+      let i = Math.floor(collection.length * random)
+      result.push(collection[i])
+      collection.splice(i, 1)
+      n--
+    }
+    return result
   },
 
-  shuffle(){
-
+  shuffle(ary){
+    let a = ary
+    let result = []
+    for(let i = a.length; i > 0; i--){
+      let id = Math.floor(Math.random() * a.length)
+      result.push(a[id])
+      a.splice(id, 1)
+    }
+    return result
   },
   
-  size(){
-
+  size(collection){
+    if(typeof collection === 'string')
+    return collection.length
+    let count
+    for(let i in collection){
+      count++
+    }
+    return count
   },
 
 
@@ -418,6 +489,7 @@ var jackyen96 = {
   // min
   // multiply
   // round
+
   // substract
   // sum
   // at
@@ -428,6 +500,7 @@ var jackyen96 = {
   // hasIn
   // invert
   // keys
+
   // assign
   // omit
   // pick
@@ -438,6 +511,7 @@ var jackyen96 = {
   // endsWith
   // escape
   // kebabCase
+
   // lowerCase
   // lowerFirst
   // pad
@@ -448,6 +522,7 @@ var jackyen96 = {
   // replace
   // snakeCase
   // split
+
   // startCase
   // startsWith
   // trim
@@ -460,3 +535,5 @@ var jackyen96 = {
   // words
   // range
 }
+
+var _ = jackyen96
