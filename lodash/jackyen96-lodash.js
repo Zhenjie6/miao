@@ -535,5 +535,3 @@ var jackyen96 = {
   // words
   // range
 }
-
-var _ = jackyen96
